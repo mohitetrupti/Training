@@ -1,0 +1,20 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+
+
+
+<!-- For byName to work, the id should be same as attribute name in that class -->
+<!-- For byType, the checking is done on the basis of object type, hence, no need of same names -->
+<bean id="category" class="com.springproduct.model.Category">
+	<property name="name" value="Fashion"/>
+</bean>
+
+<bean id="product" class="com.springproduct.model.Product" autowire="byType">
+	<property name="name" value="Kurti"/>
+	<property name="unitprice" value="1200"/>
+</bean>
+</beans>
